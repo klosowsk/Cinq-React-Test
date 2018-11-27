@@ -1,0 +1,34 @@
+.users-actions {
+    margin-top: 60px;
+    padding: 10px;
+}
+.users-actions label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+}
+.users-actions input[type=text]{
+    border-radius: 2px;
+    padding: 5px;
+    border: 1px solid lightgray;
+}
+.users-actions input[type=button]{
+    margin: auto 5px auto 5px;
+    border-radius: 2px;
+    padding: 5px;
+    border: 1px solid lightgray;
+}
+
+@media screen and (max-width: 1024px) {
+    .users-actions {
+        display: flex;
+        flex-direction: column;
+    }
+    .users-actions input[type=text]{
+        margin: 2px 0 2px 0;
+    }
+    .users-actions input[type=button]{
+        margin: 2px 0 2px 0;
+        cursor: pointer;
+    }
+}

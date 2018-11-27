@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 
 import { connect } from 'react-redux';
-import { fetchUsersSuccess, fetchUsersFail } from '../redux/actions';
+import { fetchUsersSuccess, fetchUsersFail, fetchUsersLoading } from '../redux/actions';
 
 import Home from './Home/Home';
 import User from './User/User';
@@ -12,7 +12,8 @@ import User from './User/User';
 const Routes = (props) => {
 
     useEffect(() => {
-        axios.get('users.json')
+        props.fetchUsersLoading()
+        axios.get('http://localhost:3006/users.json')
         .then( res => {
             props.fetchUsers(res.data)
         })
@@ -20,12 +21,11 @@ const Routes = (props) => {
             props.fetchUsersFail(error)
         })
     }, []);
-
     return (
         <Router>
         <div className="container">
             <Route exact path="/" component={Home} />
-            <Route path="/user" component={User} />
+            <Route path="/user/:id" component={User} />
         </div>
         </Router>
     );
@@ -44,6 +44,9 @@ const mapDispatchToProps = dispatch => {
         },
         fetchUsersFail: error => {
             dispatch(fetchUsersFail(error))
+        },
+        fetchUsersLoading: () => {
+            dispatch(fetchUsersLoading())
         }
     }
 }

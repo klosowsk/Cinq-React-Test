@@ -1,26 +1,47 @@
 import React from 'react';
-
-import './UsersList.scss'
+import { Link } from "react-router-dom";
+import { useState } from 'react';
+import { findUsers } from '../../utils'
+import './UsersList.css'
 
 const UsersList = (props) => {
-    console.log(props)
+    const [selectedAll, setSelectedAll] = useState(false);
+    const toogleSelectAll = () => {
+        selectedAll ? props.unselectAllUsers() : props.selectAllUsers() 
+        setSelectedAll(!selectedAll)
+    }
     return (
         <section className="users-list">
             <table>
                 <thead>
                     <tr>
-                        <th><input type="checkbox"/></th>
+                        <th>
+                            <input type="checkbox" 
+                                checked={selectedAll} 
+                                onChange={toogleSelectAll}
+                                />
+                        </th>
                         <th>Name</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                 { 
-                    props.users.items.map( user => {
+                    findUsers(props.users, props.users.search).map( user => {
                         return <tr key={user.id}>
-                                    <td><input type="checkbox"/></td>
+                                    <td>
+                                        <input 
+                                            type="checkbox" 
+                                            checked={user.selected} 
+                                            onChange={()=>{ user.selected ? props.unselectUser(user.id) : props.selectUser(user.id)}}
+                                            />
+                                    </td>
                                     <td>{user.firstName} {user.lastName}</td>
-                                    <td>Show | Delete</td>
+                                    <td>
+                                        <Link to={"user/"+user.id}><button>Show</button></Link> 
+                                        &nbsp;|&nbsp;
+                                        <button onClick={() => props.deleteUser(user.id)}>Delete</button>
+                                    </td>
                                 </tr>
                     })
                 }

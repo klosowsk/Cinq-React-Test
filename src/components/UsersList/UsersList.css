@@ -1,0 +1,16 @@
+.users-list table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px;
+    font-size: 15px;
+}
+
+.users-list td, th {
+    text-align: center;
+    border: 1px solid gray;
+    padding: 8px;
+}
+
+.users-list tr:hover {
+    background-color: lightgray;
+}
