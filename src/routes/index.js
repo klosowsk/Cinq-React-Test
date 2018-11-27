@@ -13,7 +13,7 @@ const Routes = (props) => {
 
     useEffect(() => {
         props.fetchUsersLoading()
-        axios.get('http://localhost:3006/users.json')
+        axios.get('http://localhost:3000/users.json')
         .then( res => {
             props.fetchUsers(res.data)
         })
