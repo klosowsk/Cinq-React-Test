@@ -17,6 +17,17 @@
     border-radius: 2px;
     padding: 5px;
     border: 1px solid lightgray;
+    cursor: pointer;
+}
+
+.users-actions input[type=button][disabled]{
+    /* margin: auto 5px auto 5px; */
+    border-radius: 2px;
+    padding: 5px;
+    cursor: unset;
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
 }
 
 @media screen and (max-width: 1024px) {
@@ -30,5 +41,11 @@
     .users-actions input[type=button]{
         margin: 2px 0 2px 0;
         cursor: pointer;
+    }
+    .users-actions input[type=button][disabled]{
+        cursor: unset;
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
     }
 }

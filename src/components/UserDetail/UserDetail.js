@@ -1,21 +1,19 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-import './UserDetails.css'
+import './UserDetail.css'
 
 const UserDetails = (props) => {
     return (
-        <section className="users-details">
-            <div className="user-card" key={props.user.id}>
+        <section className="users-detail">
                 <h1>{props.user.firstName} {props.user.lastName}</h1>
                 <p>Age: {props.user.age}</p>
                 <p>Description: {props.user.description}</p>
                 <p>
-                    <button>Voltar</button> 
+                    <Link to="/"><button>Voltar</button></Link>
                     &nbsp;|&nbsp;
                     <button>Editar</button>
                 </p>
-            </div>
         </section>
     )
 }

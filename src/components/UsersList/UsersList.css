@@ -14,3 +14,13 @@
 .users-list tr:hover {
     background-color: lightgray;
 }
+.users-list button {
+    font-size: 14px;
+    margin: auto 5px auto 5px;
+    border-radius: 2px;
+    padding: 2px;
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}

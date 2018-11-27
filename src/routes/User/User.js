@@ -4,12 +4,12 @@ import { editUser } from '../../redux/actions';
 import UserDetail from '../../components/UserDetail/UserDetail'
 
 const User = (props) => {
-    const user = props.users.items.filter( item => item.id == props.match.params.id )
+    const user = props.users.items.filter( item => item.id === Number(props.match.params.id) )
     console.log(user)
     if(user.length && !props.users.loading){
         return (
             <div>
-                <UserDetail user={user}/>
+                <UserDetail user={user[0]}/>
             </div>
         )
     } else if ( props.users.loading ){

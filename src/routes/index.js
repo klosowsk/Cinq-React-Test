@@ -12,6 +12,7 @@ import User from './User/User';
 const Routes = (props) => {
 
     useEffect(() => {
+        console.log(process.env.PUBLIC_URL)
         props.fetchUsersLoading()
         axios.get('http://localhost:3000/users.json')
         .then( res => {
