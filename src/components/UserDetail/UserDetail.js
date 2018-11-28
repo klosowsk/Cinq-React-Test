@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
-import './UserDetail.css'
+import propTypes from 'prop-types';
+import './UserDetail.scss'
 
 const UserDetails = (props) => {
     return (
@@ -16,6 +16,10 @@ const UserDetails = (props) => {
                 </p>
         </section>
     )
+}
+
+UserDetails.propTypes = {
+    user: propTypes.object.isRequired
 }
 
 export default UserDetails;

@@ -8,19 +8,19 @@ const User = (props) => {
     console.log(user)
     if(user.length && !props.users.loading){
         return (
-            <div>
+            <div className="container">
                 <UserDetail user={user[0]}/>
             </div>
         )
     } else if ( props.users.loading ){
         return (
-            <div>
+            <div className="container">
                 <h1>Loading...</h1>
             </div>
         )
     } else {
         return (
-            <div>
+            <div className="container">
                 <h1>Any user found...</h1>
             </div>
         )

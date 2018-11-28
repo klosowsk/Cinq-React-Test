@@ -1,20 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useEffect } from 'react';
 import axios from 'axios';
 
 import { connect } from 'react-redux';
 import { fetchUsersSuccess, fetchUsersFail, fetchUsersLoading } from '../redux/actions';
+import { apiaddress } from '../constants'
 
 import Home from './Home/Home';
 import User from './User/User';
+import NotFound from './NotFound/NotFound';
 
 const Routes = (props) => {
 
     useEffect(() => {
-        console.log(process.env.PUBLIC_URL)
         props.fetchUsersLoading()
-        axios.get('http://localhost:3000/users.json')
+        axios.get(`${apiaddress}/users.json`)
         .then( res => {
             props.fetchUsers(res.data)
         })
@@ -24,10 +25,11 @@ const Routes = (props) => {
     }, []);
     return (
         <Router>
-        <div className="container">
-            <Route exact path="/" component={Home} />
-            <Route path="/user/:id" component={User} />
-        </div>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/user/:id" component={User} />
+                <Route component={NotFound} />
+            </Switch>
         </Router>
     );
 }

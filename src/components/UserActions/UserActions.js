@@ -1,7 +1,8 @@
 import React from 'react';
-import fileDownload from 'react-file-download';
+import propTypes from 'prop-types';
+import fileDownload from 'js-file-download';
 
-import './UserActions.css'
+import './UserActions.scss'
 
 const UserActions = (props) => {
     const disableDelete = props.users.items.every(  item => !item.selected )
@@ -50,6 +51,12 @@ const UserActions = (props) => {
                 />    
         </section>
     )
+}
+
+UserActions.propTypes = {
+    users: propTypes.object.isRequired,
+    deleteUsers: propTypes.func.isRequired,
+    filterUsers: propTypes.func.isRequired
 }
 
 export default UserActions;

@@ -1,0 +1,51 @@
+.users-actions {
+    margin-top: 60px;
+    padding: 10px;
+    label {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type=text]{
+        border-radius: 2px;
+        padding: 5px;
+        border: 1px solid lightgray;
+    }
+    input[type=button]{
+        margin: auto 5px auto 5px;
+        border-radius: 2px;
+        padding: 5px;
+        border: 1px solid lightgray;
+        cursor: pointer;
+    }
+
+    input[type=button][disabled]{
+        /* margin: auto 5px auto 5px; */
+        border-radius: 2px;
+        padding: 5px;
+        cursor: unset;
+        border: 1px solid #999999;
+        background-color: #cccccc;
+        color: #666666;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .users-actions {
+        display: flex;
+        flex-direction: column;
+        input[type=text]{
+            margin: 2px 0 2px 0;
+        }
+        input[type=button]{
+            margin: 2px 0 2px 0;
+            cursor: pointer;
+        }
+        input[type=button][disabled]{
+            cursor: unset;
+            border: 1px solid #999999;
+            background-color: #cccccc;
+            color: #666666;
+        }
+    }
+}

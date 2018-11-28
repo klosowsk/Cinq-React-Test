@@ -10,7 +10,7 @@ import { selectAllUsers, unselectAllUsers, selectUser, unselectUser, filterUsers
 
 const Home = (props) => {
     return (
-        <div>
+        <div className="container">
             <UserActions users={props.users} filterUsers={props.filterUsers} deleteUsers={props.deleteUsers}/>
             <Media query="(max-width: 1024px)">
                 { matches => matches ? 
